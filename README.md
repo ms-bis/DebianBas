@@ -52,3 +52,5 @@ kwin,
      Minimize All
      Toogle panel screen edge - panel 0n
 ```
+
+Bash & ZSH shell configuration is not complete yet!
