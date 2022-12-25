@@ -11,7 +11,7 @@ tri.sh - installes packages, fonts, configures neovim/lunarvim, installes christ
 
 ```
 
-After mono.sh, di.sh, tri.sh system will reboot!
+After mono.sh, di.sh, tri.sh system will restart!
 
 tri.sh package list.
 From Debian-testing
