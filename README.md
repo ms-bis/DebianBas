@@ -16,7 +16,7 @@ After mono.sh, di.sh, tri.sh system will restart!
 tri.sh package list.
 From Debian-testing
 ```
-build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift app-outlet gnome-software discover clamav clamtk app-outlet synaptic qt5-style-kvantum
+build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift app-outlet gnome-software discover clamav clamtk app-outlet synaptic qt5-style-kvantum ueberzug python3.10-venv
 
 ```
 If app-outlet is not available in the repo, then uncomment line 57-60.
