@@ -34,3 +34,21 @@ Fonts
 FiraCode, Meslo, Roboto, fontsawesome
 
 ```
+plasma config
+```
+theme - layan
+widgets, 
+        org.kde.plasma.betterkicker
+        org.kde.plasma.eventcalendar
+        org.kde.windowtitle
+        org.kxn.cornerMenu/KppleMenu
+        GlobalMenu
+        WindowButton
+        Search
+        Icons-only Task Manager
+kwin,
+     Exquisite
+     Hide Titles
+     Minimize All
+     Toogle panel screen edge - panel 0n
+```
