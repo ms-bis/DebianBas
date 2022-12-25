@@ -641,6 +641,6 @@ bind '"\e[B": history-search-forward'
 # [[ -s /home/msbis/.autojump/etc/profile.d/autojump.sh ]] && source /home/msbis/.autojump/etc/profile.d/autojump.sh
 . /home/msbis/.autojump/etc/profile.d/autojump.sh
 
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 [[ ${BLE_VERSION-} ]] && ble-attach
