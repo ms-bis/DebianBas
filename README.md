@@ -13,6 +13,15 @@ tri.sh - installes packages, fonts, configures neovim/lunarvim, installes christ
 
 After mono.sh, di.sh, tri.sh system will restart!
 
+All the script must run with sudo!!
+```
+sudo ./mono.sh
+sudo ./di.sh
+sudo .tri.sh
+
+```
+
+
 tri.sh package list.
 From Debian-testing
 ```
