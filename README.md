@@ -37,6 +37,14 @@ snap - rambox
 brave-browser, fsearch, spotify, vscode, steam, protonvpn
 
 ```
+Needs to manually update
+```
+app-outlet, protonvpn
+Font - FontAwesome, FiraCode, Meslo
+
+```
+
+
 
 Fonts
 ```
