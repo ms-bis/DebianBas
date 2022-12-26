@@ -25,7 +25,7 @@ sudo .tri.sh
 tri.sh package list.
 From Debian-testing
 ```
-build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift app-outlet gnome-software discover clamav clamtk app-outlet synaptic qt5-style-kvantum ueberzug python3.10-venv
+build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift app-outlet gnome-software discover clamav clamtk app-outlet synaptic qt5-style-kvantum ueberzug python3.10-venv luarocks qbittorrent
 
 ```
 If app-outlet is not available in the repo, then uncomment line 57-60.
