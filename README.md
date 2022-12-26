@@ -34,7 +34,7 @@ From custom :ppa
 ```
 flatpak - onlyoffice
 snap - rambox
-brave-browser, fsearch, spotify, vscode, steam
+brave-browser, fsearch, spotify, vscode, steam, protonvpn
 
 ```
 
@@ -61,5 +61,3 @@ kwin,
      Minimize All
      Toogle panel screen edge - panel 0n
 ```
-
-Bash & ZSH shell configuration is not complete yet!
