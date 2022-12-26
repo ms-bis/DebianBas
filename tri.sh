@@ -48,6 +48,13 @@ sudo nala install software-properties-common -y --install-suggests
 sudo nala update
 sudo nala install steam -y --install-suggests
 
+## Install protonvpn
+wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
+sudo dpkg --install protonvpn*
+sudo nala update
+sudo nala install protonvpn
+rm protonvpn*
+
 # rambox
 sudo snap install rambox
 
