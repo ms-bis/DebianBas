@@ -7,7 +7,7 @@ Script running order.
 ```
 mono.sh - checks mirror, update && upgrade debian, installs nala, change shell to Bash
 di.sh - enables snapd, flatpak
-tri.sh - installes packages, fonts, configures neovim/lunarvim, installes christitus-mybash with config, enables brew,installes dependency with brew
+tri.sh - installes packages, fonts, configures neovim/lunarvim, installes christitus-mybash with config, enables brew,installes dependency with brew zsh-configuration
 
 ```
 
