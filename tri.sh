@@ -117,11 +117,19 @@ cd ..
 git clone git://github.com/wting/autojump.git
 cd autojump
 ./install.py
-
 cd ..
 rm -rf ble.sh autojump*
-# configuration
+## configuration
 cp -r bashrc /home/$username/.bashrc # bashrc
+
+# ZSH
+cd $builddir
+## Install Oh-My-ZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+## Install Zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+## Configuration
+cp -r zshrc /home/$username/.zshrc
 
 # Installing fonts
 cd $builddir
