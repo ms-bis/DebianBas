@@ -59,11 +59,23 @@ sudo nala update
 sudo nala install protonvpn easy-rsa openvpn-dco-dkms openvpn-systemd-resolved
 rm protonvpn*
 
+# onlyoffice
+mkdir -p ~/.gnupg
+chmod 700 ~/.gnupg
+gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+chmod 644 /tmp/onlyoffice.gpg
+sudo chown root:root /tmp/onlyoffice.gpg
+sudo mv /tmp/onlyoffice.gpg /etc/apt/trusted.gpg.d/
+##
+echo 'deb https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
+sudo nala update
+sudo nala install onlyoffice-desktopeditors
+
 # rambox
 sudo snap install rambox
 
-# onlyoffice
-flatpak install onlyoffice net.davidotek.pupgui2
+# protonup-qt
+flatpak install net.davidotek.pupgui2
 
 # install app-outlet
 # wget https://github.com/app-outlet/app-outlet/releases/download/v2.1.0/app-outlet_2.1.0_amd64.deb
