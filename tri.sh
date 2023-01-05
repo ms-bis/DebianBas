@@ -29,9 +29,9 @@ curl -fsSL https://download.opensuse.org/repositories/home:cboxdoerfer/Debian_Te
 sudo nala update
 sudo nala install fsearch -y --install-suggests
 ## For ubuntu
-sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
-sudo nala update
-sudo nala install fsearch -y
+#sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
+#sudo nala update
+#sudo nala install fsearch -y
 
 # vscode
 sudo nala install wget gpg -y --install-suggests
