@@ -63,7 +63,7 @@ rm protonvpn*
 sudo snap install rambox
 
 # onlyoffice
-flatpak install onlyoffice
+flatpak install onlyoffice net.davidotek.pupgui2
 
 # install app-outlet
 # wget https://github.com/app-outlet/app-outlet/releases/download/v2.1.0/app-outlet_2.1.0_amd64.deb
