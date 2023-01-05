@@ -94,7 +94,7 @@ test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 
 # Installes Neovim
-sudo nala install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen -y --install-suggests
+sudo nala install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen gdu gcc ripgrep cargo npm -y --install-suggests
 pip install cmake matplotlib numpy vpython
 cd $builddir
 git clone https://github.com/neovim/neovim
@@ -104,7 +104,6 @@ sudo make install
 cd ..
 sudo rm -rf neovim
 ## neovim configuration
-sudo nala install gdu gcc ripgrep -y
 brew install lazygit bottom
 cargo install tree-sitter-cli
 ## Configuration
