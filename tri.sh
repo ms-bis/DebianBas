@@ -56,7 +56,7 @@ sudo nala install steam -y --install-suggests
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
 sudo dpkg --install protonvpn*
 sudo nala update
-sudo nala install protonvpn
+sudo nala install protonvpn easy-rsa openvpn-dco-dkms openvpn-systemd-resolved
 rm protonvpn*
 
 # rambox
