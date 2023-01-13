@@ -9,7 +9,7 @@ username=$(id -u -n 1000)
 builddir=$(pwd)
 
 ### Installing softwares
-sudo nala install build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift discover clamav clamtk synaptic qt5-style-kvantum python3.10-venv ueberzug luarocks xclip qbittorrent gpm ibus-avro neofetch gdebi ranger knotes fzf -y --install-suggests
+sudo nala install build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift discover clamav clamtk synaptic qt5-style-kvantum python3.10-venv ueberzug luarocks xclip qbittorrent gpm ibus-avro neofetch gdebi ranger knotes fzf redshift-gtk -y --install-suggests
 
 # Install brave-browser
 sudo nala install apt-transport-https curl -y --install-suggests
