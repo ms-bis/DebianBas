@@ -1,0 +1,33 @@
+# Font configuration
+font:
+  normal:
+    family: "MesloLGS Nerd Font"
+    style: Bold
+
+  # Bold font face
+  bold:
+    family: "MesloLGS Nerd Font"
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: "MesloLGS Nerd Font"
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: "MesloLGS Nerd Font"
+    style: Bold Italic
+
+  # Point size
+  size: 9.5
+
+  # Offset
+  #offset:
+  #  x: 0
+  #  y: 0
+
+  # Glyph offset
+  #glyph_offset:
+  #  x: 0
+  #  y: 0
