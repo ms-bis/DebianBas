@@ -177,6 +177,10 @@ rm ./FiraCode.zip ./Meslo.zip ./Roboto.zip ./Fontawesome*
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 
+# Alacritty configuration
+cd $builddir
+cp -r Alacritty $HOME/.config/alacritty
+
 # installation finish message
 echo "configuration successfully finished" 2>&1
 
