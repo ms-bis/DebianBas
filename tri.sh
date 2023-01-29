@@ -9,7 +9,7 @@ username=$(id -u -n 1000)
 builddir=$(pwd)
 
 ### Installing softwares
-sudo nala install build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift discover clamav clamtk synaptic qt5-style-kvantum python3.10-venv ueberzug luarocks xclip qbittorrent gpm ibus-avro neofetch gdebi ranger knotes fzf redshift-gtk exa -y --install-suggests
+sudo nala install build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift discover clamav clamtk synaptic qt5-style-kvantum python3.10-venv ueberzug luarocks xclip qbittorrent gpm ibus-avro neofetch gdebi ranger knotes fzf redshift-gtk exa clang-format reuse kwin-bismuth fortune cowsay figlet lolcat tty-clock cmatrix alacritty cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y --install-suggests
 
 # Install brave-browser
 sudo nala install apt-transport-https curl -y --install-suggests
@@ -177,7 +177,7 @@ rm ./FiraCode.zip ./Meslo.zip ./Roboto.zip ./Fontawesome*
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 
-
+# installation finish message
 echo "configuration successfully finished" 2>&1
 
 ## reboot
