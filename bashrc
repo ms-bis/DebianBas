@@ -1,6 +1,6 @@
 #!/bin/bash
 [[ $- == *i* ]] &&
-  source "/home/msbis/.local/share/blesh/ble.sh" --attach=none
+	source "/home/msbis/.local/share/blesh/ble.sh" --attach=none
 iatest=$(expr index "$-" i)
 
 #######################################################
@@ -9,7 +9,7 @@ iatest=$(expr index "$-" i)
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	 . /etc/bashrc
+	. /etc/bashrc
 fi
 
 # Enable bash programmable completion features in interactive shells
@@ -53,8 +53,8 @@ if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
 if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Set the default editor
-# export EDITOR=nvim 
-# export VISUAL=nvim 
+# export EDITOR=nvim
+# export VISUAL=nvim
 #alias pico='edit'
 #alias spico='sedit'
 #alias nano='edit'
@@ -111,6 +111,10 @@ alias hlp='less ~/.bashrc_help'
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
 
+# alias to fix kde widgets
+alias fix='rm -rf .config/kde*  .config/plasma* .local/share/kde* .local/share/plasma* && cp -r Customization/local/* .local/share/ Customization/config/* .config/'
+alias bkup='cp -r .config/kde* ~/Customization/config/ .config/plasma* ~/Customization/config/ .local/share/plasma* ~/Customization/local/  .local/share/kde* ~/Customization/local/'
+
 # Alias's to modified commands
 alias cp='cp -i'
 alias mv='mv -i'
@@ -121,17 +125,21 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias c='clear'
 
+alias update='sudo nala update'
+alias upgrade='sudo nala upgrade'
 alias .apt='sudo nala'
 alias s.apt='sudo nala search'
 alias i.apt='sudo nala install'
 alias r.apt='sudo nala remove'
-#alias sug='--install-suggests'
+alias sug='install-suggests'
 alias s.fpk='flatpak search'
 alias i.fpk='flatpak install'
 alias r.fpk='flatpak remove'
 alias s.snp='snap search'
 alias i.snp='snap install'
 alias r.snp='snap remove'
+alias colorscheme='bash -c "$(wget -qO- https://git.io/vQgMr)"'
+alias r.plasma='kwin_x11 --replace; plasmashell --replace'
 
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
@@ -153,6 +161,8 @@ alias sna='sudo nano'
 # alias sublime='/opt/sublime_text/sublime_text %F'
 alias li='lvim'
 alias sli='sudo lvim'
+alias firefox-esr='gtk3-nocsd firefox-esr'
+alias lutris='gtk3-nocsd lutris'
 
 # Change directory aliases
 alias home='cd ~'
@@ -169,21 +179,27 @@ alias bd='cd "$OLDPWD"'
 alias rmd='/bin/rm  --recursive --force --verbose '
 
 # Alias's for multiple directory listing commands
-alias l='ls' # list files
-alias la='ls -Alh' # show hidden files
+#alias l='ls' # list files
+#alias la='ls -Alh' # show hidden files
 alias le='ls -aFh --color=always' # add colors and file type extensions
-alias lx='ls -lXBh' # sort by extension
-alias lk='ls -lSrh' # sort by size
-alias lc='ls -lcrh' # sort by change time
-alias lu='ls -lurh' # sort by access time
-alias lr='ls -lRh' # recursive ls
-alias lt='ls -ltrh' # sort by date
-alias lm='ls -alh |more' # pipe through 'more'
-alias lw='ls -xAh' # wide listing format
-alias ll='ls -Fls' # long listing format
-alias labc='ls -lap' #alphabetical sort
+alias lx='ls -lXBh'               # sort by extension
+alias lk='ls -lSrh'               # sort by size
+alias lc='ls -lcrh'               # sort by change time
+alias lu='ls -lurh'               # sort by access time
+alias lr='ls -lRh'                # recursive ls
+alias lt='ls -ltrh'               # sort by date
+alias lm='ls -alh |more'          # pipe through 'more'
+alias lw='ls -xAh'                # wide listing format
+#alias ll='ls -Fls' # long listing format
+alias labc='ls -lap'             #alphabetical sort
 alias lf="ls -l | egrep -v '^d'" # files only
-alias ldir="ls -l | egrep '^d'" # directories only
+alias ldir="ls -l | egrep '^d'"  # directories only
+# special listing
+alias ls='exa --icons --color=always --group-directories-first'
+alias ll='exa -alF --icons --color=always --group-directories-first'
+alias la='exa -a --icons --color=always --group-directories-first'
+alias l='exa -F --icons --color=always --group-directories-first'
+alias l.='exa -a | egrep "^\."'
 
 # alias chmod commands
 alias mx='chmod a+x'
@@ -249,8 +265,7 @@ alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 #######################################################
 
 # Use the best version of pico installed
-edit ()
-{
+edit() {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
 		jpico -nonotice -linums -nobackups "$@"
@@ -262,8 +277,7 @@ edit ()
 		nvim "$@"
 	fi
 }
-sedit ()
-{
+sedit() {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
 		sudo jpico -nonotice -linums -nobackups "$@"
@@ -277,22 +291,22 @@ sedit ()
 }
 
 # Extracts any archive(s) (if unp isn't installed)
-extract () {
-	for archive in $*; do
-		if [ -f $archive ] ; then
+extract() {
+	for archive in "$@"; do
+		if [ -f "$archive" ]; then
 			case $archive in
-				*.tar.bz2)   tar xvjf $archive    ;;
-				*.tar.gz)    tar xvzf $archive    ;;
-				*.bz2)       bunzip2 $archive     ;;
-				*.rar)       rar x $archive       ;;
-				*.gz)        gunzip $archive      ;;
-				*.tar)       tar xvf $archive     ;;
-				*.tbz2)      tar xvjf $archive    ;;
-				*.tgz)       tar xvzf $archive    ;;
-				*.zip)       unzip $archive       ;;
-				*.Z)         uncompress $archive  ;;
-				*.7z)        7z x $archive        ;;
-				*)           echo "don't know how to extract '$archive'..." ;;
+			*.tar.bz2) tar xvjf "$archive" ;;
+			*.tar.gz) tar xvzf "$archive" ;;
+			*.bz2) bunzip2 "$archive" ;;
+			*.rar) rar x "$archive" ;;
+			*.gz) gunzip "$archive" ;;
+			*.tar) tar xvf "$archive" ;;
+			*.tbz2) tar xvjf "$archive" ;;
+			*.tgz) tar xvzf "$archive" ;;
+			*.zip) unzip "$archive" ;;
+			*.Z) uncompress "$archive" ;;
+			*.7z) 7z x "$archive" ;;
+			*) echo "don't know how to extract '$archive'..." ;;
 			esac
 		else
 			echo "'$archive' is not a valid file!"
@@ -301,8 +315,7 @@ extract () {
 }
 
 # Searches for text in all files in the current folder
-ftext ()
-{
+ftext() {
 	# -i case-insensitive
 	# -I ignore binary files
 	# -H causes filename to be printed
@@ -314,11 +327,10 @@ ftext ()
 }
 
 # Copy file with a progress bar
-cpp()
-{
+cpp() {
 	set -e
-	strace -q -ewrite cp -- "${1}" "${2}" 2>&1 \
-	| awk '{
+	strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
+		awk '{
 	count += $NF
 	if (count % 10 == 0) {
 		percent = count / total_size * 100
@@ -331,50 +343,45 @@ cpp()
 				printf "]\r"
 			}
 		}
-	END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
+END { print "" }' total_size="$(stat -c '%s' "${1}")" count=0
 }
 
 # Copy and go to the directory
-cpg ()
-{
-	if [ -d "$2" ];then
-		cp $1 $2 && cd $2
+cpg() {
+	if [ -d "$2" ]; then
+		cp "$1" "$2" && cd "$2"
 	else
-		cp $1 $2
+		cp "$1" "$2"
 	fi
 }
 
 # Move and go to the directory
-mvg ()
-{
-	if [ -d "$2" ];then
-		mv $1 $2 && cd $2
+mvg() {
+	if [ -d "$2" ]; then
+		mv "$1" "$2" && cd "$2"
 	else
-		mv $1 $2
+		mv "$1" "$2"
 	fi
 }
 
 # Create and go to the directory
-mkdirg ()
-{
-	mkdir -p $1
-	cd $1
+mkdirg() {
+	mkdir -p "$1"
+	cd "$1"
 }
 
 # Goes up a specified number of directories  (i.e. up 4)
-up ()
-{
+up() {
 	local d=""
 	limit=$1
-	for ((i=1 ; i <= limit ; i++))
-		do
-			d=$d/..
-		done
-	d=$(echo $d | sed 's/^\///')
-	if [ -z "$d" ]; then
+	for ((i = 1; i <= limit; i++)); do
+		d=$d/..
+	done
+	d=$(echo "$d" | sed 's/^\///')
+	if [ "$d" = "" ]; then
 		d=..
 	fi
-	cd $d
+	cd "$d"
 }
 
 #Automatically do an ls after each cd
@@ -388,14 +395,12 @@ up ()
 # }
 
 # Returns the last 2 fields of the working directory
-pwdtail ()
-{
-	pwd|awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
+pwdtail() {
+	pwd | awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
 }
 
 # Show the current distribution
-distribution ()
-{
+distribution() {
 	local dtype
 	# Assume unknown
 	dtype="unknown"
@@ -403,59 +408,58 @@ distribution ()
 	# First test against Fedora / RHEL / CentOS / generic Redhat derivative
 	if [ -r /etc/rc.d/init.d/functions ]; then
 		source /etc/rc.d/init.d/functions
-		[ zz`type -t passed 2>/dev/null` == "zzfunction" ] && dtype="redhat"
+		[ zz"$(type -t passed 2>/dev/null)" == "zzfunction" ] && dtype="redhat"
 
-	# Then test against SUSE (must be after Redhat,
-	# I've seen rc.status on Ubuntu I think? TODO: Recheck that)
+		# Then test against SUSE (must be after Redhat,
+		# I've seen rc.status on Ubuntu I think? TODO: Recheck that)
 	elif [ -r /etc/rc.status ]; then
 		source /etc/rc.status
-		[ zz`type -t rc_reset 2>/dev/null` == "zzfunction" ] && dtype="suse"
+		[ zz"$(type -t rc_reset 2>/dev/null)" == "zzfunction" ] && dtype="suse"
 
-	# Then test against Debian, Ubuntu and friends
+		# Then test against Debian, Ubuntu and friends
 	elif [ -r /lib/lsb/init-functions ]; then
 		source /lib/lsb/init-functions
-		[ zz`type -t log_begin_msg 2>/dev/null` == "zzfunction" ] && dtype="debian"
+		[ zz"$(type -t log_begin_msg 2>/dev/null)" == "zzfunction" ] && dtype="debian"
 
-	# Then test against Gentoo
+		# Then test against Gentoo
 	elif [ -r /etc/init.d/functions.sh ]; then
 		source /etc/init.d/functions.sh
-		[ zz`type -t ebegin 2>/dev/null` == "zzfunction" ] && dtype="gentoo"
+		[ zz"$(type -t ebegin 2>/dev/null)" == "zzfunction" ] && dtype="gentoo"
 
-	# For Mandriva we currently just test if /etc/mandriva-release exists
-	# and isn't empty (TODO: Find a better way :)
+		# For Mandriva we currently just test if /etc/mandriva-release exists
+		# and isn't empty (TODO: Find a better way :)
 	elif [ -s /etc/mandriva-release ]; then
 		dtype="mandriva"
 
-	# For Slackware we currently just test if /etc/slackware-version exists
+		# For Slackware we currently just test if /etc/slackware-version exists
 	elif [ -s /etc/slackware-version ]; then
 		dtype="slackware"
 
 	fi
-	echo $dtype
+	echo "$dtype"
 }
 
 # Show the current version of the operating system
-ver ()
-{
+ver() {
 	local dtype
 	dtype=$(distribution)
 
-	if [ $dtype == "redhat" ]; then
+	if [ "$dtype" == "redhat" ]; then
 		if [ -s /etc/redhat-release ]; then
 			cat /etc/redhat-release && uname -a
 		else
 			cat /etc/issue && uname -a
 		fi
-	elif [ $dtype == "suse" ]; then
+	elif [ "$dtype" == "suse" ]; then
 		cat /etc/SuSE-release
-	elif [ $dtype == "debian" ]; then
+	elif [ "$dtype" == "debian" ]; then
 		lsb_release -a
 		# sudo cat /etc/issue && sudo cat /etc/issue.net && sudo cat /etc/lsb_release && sudo cat /etc/os-release # Linux Mint option 2
-	elif [ $dtype == "gentoo" ]; then
+	elif [ "$dtype" == "gentoo" ]; then
 		cat /etc/gentoo-release
-	elif [ $dtype == "mandriva" ]; then
+	elif [ "$dtype" == "mandriva" ]; then
 		cat /etc/mandriva-release
-	elif [ $dtype == "slackware" ]; then
+	elif [ "$dtype" == "slackware" ]; then
 		cat /etc/slackware-version
 	else
 		if [ -s /etc/issue ]; then
@@ -468,28 +472,27 @@ ver ()
 }
 
 # Automatically install the needed support files for this .bashrc file
-install_bashrc_support ()
-{
+install_bashrc_support() {
 	local dtype
 	dtype=$(distribution)
 
-	if [ $dtype == "redhat" ]; then
+	if [ "$dtype" == "redhat" ]; then
 		sudo yum install multitail tree joe
-	elif [ $dtype == "suse" ]; then
+	elif [ "$dtype" == "suse" ]; then
 		sudo zypper install multitail
 		sudo zypper install tree
 		sudo zypper install joe
-	elif [ $dtype == "debian" ]; then
+	elif [ "$dtype" == "debian" ]; then
 		sudo apt-get install multitail tree joe
-	elif [ $dtype == "gentoo" ]; then
+	elif [ "$dtype" == "gentoo" ]; then
 		sudo emerge multitail
 		sudo emerge tree
 		sudo emerge joe
-	elif [ $dtype == "mandriva" ]; then
+	elif [ "$dtype" == "mandriva" ]; then
 		sudo urpmi multitail
 		sudo urpmi tree
 		sudo urpmi joe
-	elif [ $dtype == "slackware" ]; then
+	elif [ "$dtype" == "slackware" ]; then
 		echo "No install support for Slackware"
 	else
 		echo "Unknown distribution"
@@ -497,8 +500,7 @@ install_bashrc_support ()
 }
 
 # Show current network information
-netinfo ()
-{
+netinfo() {
 	echo "--------------- Network Information ---------------"
 	/sbin/ifconfig | awk /'inet addr/ {print $2}'
 	echo ""
@@ -512,21 +514,21 @@ netinfo ()
 
 # IP address lookup
 alias whatismyip="whatsmyip"
-function whatsmyip ()
-{
+function whatsmyip() {
 	# Dumps a list of all IP addresses for every device
 	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
 
 	# Internal IP Lookup
-	echo -n "Internal IP: " ; /sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+	echo -n "Internal IP: "
+	/sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
 
 	# External IP Lookup
-	echo -n "External IP: " ; wget http://smart-ip.net/myip -O - -q
+	echo -n "External IP: "
+	wget http://smart-ip.net/myip -O - -q
 }
 
 # View Apache logs
-apachelog ()
-{
+apachelog() {
 	if [ -f /etc/httpd/conf/httpd.conf ]; then
 		cd /var/log/httpd && ls -xAh && multitail --no-repeat -c -s 2 /var/log/httpd/*_log
 	else
@@ -535,8 +537,7 @@ apachelog ()
 }
 
 # Edit the Apache configuration
-apacheconfig ()
-{
+apacheconfig() {
 	if [ -f /etc/httpd/conf/httpd.conf ]; then
 		sedit /etc/httpd/conf/httpd.conf
 	elif [ -f /etc/apache2/apache2.conf ]; then
@@ -549,8 +550,7 @@ apacheconfig ()
 }
 
 # Edit the PHP configuration file
-phpconfig ()
-{
+phpconfig() {
 	if [ -f /etc/php.ini ]; then
 		sedit /etc/php.ini
 	elif [ -f /etc/php/php.ini ]; then
@@ -569,8 +569,7 @@ phpconfig ()
 }
 
 # Edit the MySQL configuration file
-mysqlconfig ()
-{
+mysqlconfig() {
 	if [ -f /etc/my.cnf ]; then
 		sedit /etc/my.cnf
 	elif [ -f /etc/mysql/my.cnf ]; then
@@ -591,20 +590,19 @@ mysqlconfig ()
 }
 
 # For some reason, rot13 pops up everywhere
-rot13 () {
+rot13() {
 	if [ $# -eq 0 ]; then
 		tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
 	else
-		echo $* | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
+		echo "$@" | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
 	fi
 }
 
 # Trim leading and trailing spaces (for scripts)
-trim()
-{
+trim() {
 	local var=$@
-	var="${var#"${var%%[![:space:]]*}"}"  # remove leading whitespace characters
-	var="${var%"${var##*[![:space:]]}"}"  # remove trailing whitespace characters
+	var="${var#"${var%%[![:space:]]*}"}" # remove leading whitespace characters
+	var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
 	echo -n "$var"
 }
 # GitHub Titus Additions
@@ -612,7 +610,7 @@ trim()
 gcom() {
 	git add .
 	git commit -m "$1"
-	}
+}
 lazyg() {
 	git add .
 	git commit -m "$1"
@@ -640,7 +638,11 @@ bind '"\e[B": history-search-forward'
 # autojump
 # [[ -s /home/msbis/.autojump/etc/profile.d/autojump.sh ]] && source /home/msbis/.autojump/etc/profile.d/autojump.sh
 . /home/msbis/.autojump/etc/profile.d/autojump.sh
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 [[ ${BLE_VERSION-} ]] && ble-attach
+
+colorscript -r
+# neofetch
