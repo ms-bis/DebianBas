@@ -70,7 +70,7 @@ ZSH_THEME="dst"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -217,7 +217,7 @@ alias ls='exa --icons --color=always --group-directories-first'
 alias ll='exa -alF --icons --color=always --group-directories-first'
 alias la='exa -a --icons --color=always --group-directories-first'
 alias l='exa -F --icons --color=always --group-directories-first'
-alias li='exa -1 --icons --color=always --group-directories-first'
+alias lis='exa -1 --icons --color=always --group-directories-first'
 alias l.='exa -a | egrep "^\."'
 
 # alias chmod commands
@@ -304,3 +304,6 @@ zplug load
 colorscript -r
 # neofetch
 source /etc/zsh_command_not_found
+
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
