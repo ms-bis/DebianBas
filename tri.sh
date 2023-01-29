@@ -9,7 +9,7 @@ username=$(id -u -n 1000)
 builddir=$(pwd)
 
 ### Installing softwares
-sudo nala install build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift discover clamav clamtk synaptic qt5-style-kvantum python3.10-venv ueberzug luarocks xclip qbittorrent gpm ibus-avro neofetch gdebi ranger knotes fzf redshift-gtk -y --install-suggests
+sudo nala install build-essential procps curl file wget git gimp krita inkscape thunderbird htop stacer okular calibre flameshot lutris kazam kadenlive gnome-software redshift discover clamav clamtk synaptic qt5-style-kvantum python3.10-venv ueberzug luarocks xclip qbittorrent gpm ibus-avro neofetch gdebi ranger knotes fzf redshift-gtk exa -y --install-suggests
 
 # Install brave-browser
 sudo nala install apt-transport-https curl -y --install-suggests
@@ -104,7 +104,7 @@ sudo make install
 cd ..
 sudo rm -rf neovim
 ## neovim configuration
-brew install lazygit bottom
+brew install lazygit bottom pipes-sh
 cargo install tree-sitter-cli
 ## Configuration
 cd $builddir
@@ -172,6 +172,11 @@ fc-cache -vf
 
 # Removing zip Files
 rm ./FiraCode.zip ./Meslo.zip ./Roboto.zip ./Fontawesome*
+
+# ranger plugin
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
+
 
 echo "configuration successfully finished" 2>&1
 
