@@ -139,6 +139,7 @@ cd ..
 rm -rf ble.sh autojump*
 ## configuration
 cp -r bashrc /home/$username/.bashrc # bashrc
+starship preset nerd-font-symbols > ~/.config/starship.toml
 
 # ZSH
 cd $builddir
