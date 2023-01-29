@@ -70,7 +70,7 @@ ZSH_THEME="dst"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,6 +145,8 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias c='clear'
 
+alias update='sudo nala update'
+alias upgrade='sudo nala upgrade'
 alias .apt='sudo nala'
 alias s.apt='sudo nala search'
 alias i.apt='sudo nala install'
@@ -156,6 +158,7 @@ alias r.fpk='flatpak remove'
 alias s.snp='snap search'
 alias i.snp='snap install'
 alias r.snp='snap remove'
+alias r.plasma='kwin_x11 --replace; plasmashell --replace'
 
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
@@ -164,6 +167,7 @@ alias kitty='LIBGL_ALWAYS_SOFTWARE=true GALLIUM_DRIVER=llvmpipe kitty'
 alias alacritty='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
 alias gtc='git clone'
 
+alias colorscheme='bash -c "$(wget -qO- https://git.io/vQgMr)"'
 alias svi='sudo vim'
 alias vis='nvim "+set si"'
 alias grep='grep --color=auto'
@@ -177,6 +181,8 @@ alias sna='sudo nano'
 # alias sublime='/opt/sublime_text/sublime_text %F'
 alias li='lvim'
 alias sli='sudo lvim'
+alias firefox-esr='gtk3-nocsd firefox-esr'
+alias lutris='gtk3-nocsd lutris'
 
 # Change directory aliases
 alias home='cd ~'
@@ -190,11 +196,9 @@ alias .....='cd ../../../..'
 alias bd='cd "$OLDPWD"'
 
 # Remove a directory and all files
-alias rmd='/bin/rm  --recursive --force --verbose '
-
 # Alias's for multiple directory listing commands
-alias l='ls' # list files
-alias la='ls -Alh' # show hidden files
+# alias l='ls' # list files
+# alias la='ls -Alh' # show hidden files
 alias le='ls -aFh --color=always' # add colors and file type extensions
 alias lx='ls -lXBh' # sort by extension
 alias lk='ls -lSrh' # sort by size
@@ -204,10 +208,17 @@ alias lr='ls -lRh' # recursive ls
 alias lt='ls -ltrh' # sort by date
 alias lm='ls -alh |more' # pipe through 'more'
 alias lw='ls -xAh' # wide listing format
-alias ll='ls -Fls' # long listing format
+# alias ll='ls -Fls' # long listing format
 alias labc='ls -lap' #alphabetical sort
 alias lf="ls -l | egrep -v '^d'" # files only
 alias ldir="ls -l | egrep '^d'" # directories only
+# special
+alias ls='exa --icons --color=always --group-directories-first'
+alias ll='exa -alF --icons --color=always --group-directories-first'
+alias la='exa -a --icons --color=always --group-directories-first'
+alias l='exa -F --icons --color=always --group-directories-first'
+alias li='exa -1 --icons --color=always --group-directories-first'
+alias l.='exa -a | egrep "^\."'
 
 # alias chmod commands
 alias mx='chmod a+x'
@@ -277,7 +288,7 @@ if [ -f ${HOME}/.zplug/init.zsh ]; then
 fi
 
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "MichaelAquilina/zsh-auto-notify"
+# zplug "MichaelAquilina/zsh-auto-notify"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -289,3 +300,7 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+colorscript -r
+# neofetch
+source /etc/zsh_command_not_found
