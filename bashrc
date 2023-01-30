@@ -105,6 +105,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Edit this .bashrc file
 alias ebrc='ni ~/.bashrc'
 alias ezrc='ni ~/.zshrc'
+alias efrc='ni ~/.config/fish/config.fish'
 
 # Show help for this .bashrc file
 alias hlp='less ~/.bashrc_help'
@@ -164,6 +165,7 @@ alias li='lvim'
 alias sli='sudo lvim'
 alias firefox-esr='gtk3-nocsd firefox-esr'
 alias lutris='gtk3-nocsd lutris'
+alias bat='batcat'
 
 # Change directory aliases
 alias home='cd ~'
@@ -225,7 +227,7 @@ alias f="find . | grep "
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
 # To see if a command is aliased, a file, or a built-in command
-alias checkcommand="type -t"
+alias checkcommand="type"
 
 # Show current network connections to the server
 alias ipview="netstat -anpl | grep :80 | awk {'print \$5'} | cut -d\":\" -f1 | sort | uniq -c | sort -n | sed -e 's/^ *//' -e 's/ *\$//'"
@@ -648,4 +650,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 
 colorscript -r
-# neofetch 
+# neofetch
