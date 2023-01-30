@@ -104,7 +104,7 @@ sudo make install
 cd ..
 sudo rm -rf neovim
 ## neovim configuration
-brew install lazygit bottom pipes-sh
+brew install lazygit bottom pipes-sh lesspipe
 cargo install tree-sitter-cli
 ## Configuration
 cd $builddir
