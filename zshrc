@@ -70,7 +70,7 @@ ZSH_THEME="dst"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,6 +128,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Edit this .bashrc file
 alias ebrc='ni ~/.bashrc'
 alias ezrc='ni ~/.zshrc'
+alias efrc='ni ~/.config/fish/config.fish'
 
 # Show help for this .bashrc file
 alias hlp='less ~/.bashrc_help'
@@ -302,7 +303,56 @@ zplug load
 
 colorscript -r
 # neofetch
-source /etc/zsh_command_not_found
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
+
+source /etc/zsh_command_not_found
+## fzf-tab
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:*' show-group full
+# disable sort when completing options of any command
+zstyle ':completion:complete:*:options' sort false
+# use input as query string when completing zlua
+zstyle ':fzf-tab:complete:_zlua:*' query-string input
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+export LESSOPEN='|~/.lessfilter %s'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+    fzf-preview 'echo ${(P)word}'
+zstyle ':fzf-tab:complete:-command-:*' \
+    fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
+zstyle ':fzf-tab:complete:tldr:argument-1' fzf-preview 'tldr --color always $word'
+zstyle ':fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest' fzf-preview 'brew info $word'
+# this is an example
+zstyle ':fzf-tab:complete:(\\|)run-help:*' fzf-preview 'run-help $word'
+zstyle ':fzf-tab:complete:(\\|*/|)man:*' fzf-preview 'man $word'
+# Git
+# it is an example. you can change it
+zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
+    'git diff $word | delta'
+zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
+    'git log --color=always $word'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
+    'git help $word | bat -plman --color=always'
+zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
+    'case "$group" in
+	"commit tag") git show --color=always $word ;;
+	*) git show --color=always $word | delta ;;
+esac'
+zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
+    'case "$group" in
+	"modified file") git diff $word | delta ;;
+	"recent commit object name") git show --color=always $word | delta ;;
+	*) git log --color=always $word ;;
+esac'
