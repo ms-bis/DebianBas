@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+#gitmoji If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -184,6 +184,7 @@ alias li='lvim'
 alias sli='sudo lvim'
 alias firefox-esr='gtk3-nocsd firefox-esr'
 alias lutris='gtk3-nocsd lutris'
+alias bat='batcat'
 
 # Change directory aliases
 alias home='cd ~'
@@ -243,7 +244,7 @@ alias f="find . | grep "
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
 # To see if a command is aliased, a file, or a built-in command
-alias checkcommand="type -t"
+alias checkcommand="type"
 
 # Show current network connections to the server
 alias ipview="netstat -anpl | grep :80 | awk {'print \$5'} | cut -d\":\" -f1 | sort | uniq -c | sort -n | sed -e 's/^ *//' -e 's/ *\$//'"
