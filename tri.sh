@@ -152,6 +152,8 @@ cp -r zshrc /home/$username/.zshrc
 # vi-mode
 git clone https://github.com/jeffreytse/zsh-vi-mode \
   $ZSH_CUSTOM/plugins/zsh-vi-mode
+# fzf-tab
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
 # Installing fonts
 cd $builddir
