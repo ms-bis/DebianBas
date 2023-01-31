@@ -186,6 +186,17 @@ echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 cd $builddir
 cp -r Alacritty $HOME/.config/alacritty
 
+# DT colorscript
+git clone https://gitlab.com/dwt1/shell-color-scripts.git
+cd shell-color-scripts
+sudo make install
+# Removal
+sudo make uninstall
+# optional for zsh completion
+sudo cp completions/_colorscript /usr/share/zsh/site-functions
+# optional for fish shell completion
+sudo cp completions/colorscript.fish /usr/share/fish/vendor_completions.d
+
 # installation finish message
 echo "configuration successfully finished" 2>&1
 
