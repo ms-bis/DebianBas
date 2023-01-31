@@ -120,11 +120,7 @@ cp -r NvBas/lunar.lua .config/lvim/config.lua
 cp -r Nvbas/lunarboard.lua .local/share/lunarvim/lvim/lua/lvim/core/alpha/dashboard.lua
 
 rm -rf NvBas
-# mybash
-git clone https://github.com/ChrisTitusTech/mybash.git
-cd mybash
-./setup.sh
-cd ..
+
 ## ble.sh
 git clone --recursive https://github.com/akinomyoga/ble.sh.git
 cd ble.sh
@@ -138,8 +134,8 @@ cd autojump
 cd ..
 rm -rf ble.sh autojump*
 ## configuration
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 cp -r bashrc /home/$username/.bashrc # bashrc
-starship preset nerd-font-symbols > ~/.config/starship.toml
 
 # ZSH
 cd $builddir
