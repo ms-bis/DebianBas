@@ -647,7 +647,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 [[ ${BLE_VERSION-} ]] && ble-attach
 
-source ~/.local/share/icons-in-terminal/icons_bash.sh
-
 colorscript -r
 # neofetch
