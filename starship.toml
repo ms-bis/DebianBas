@@ -33,6 +33,15 @@ disabled = false
 success_symbol = "[➜❯❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✗❯❯](bold red)"
 
+[shell]
+fish_indicator = ''
+powershell_indicator = '_'
+bash_indicator = ''
+zsh_indicator = '󰼂'
+unknown_indicator = 'mystery shell'
+style = '#cad3f5 bold'
+disabled = false
+
 #  
 # configure directory
 [directory]
