@@ -26,7 +26,7 @@ separator_color=false
 
 [custom_ascii]
 color="red"
-path="~/.config/macchina/themes/ascii-fedora.txt"
+path="~/.config/macchina/themes/ascii-redhat.txt"
 
 [keys]
 host=" host"
