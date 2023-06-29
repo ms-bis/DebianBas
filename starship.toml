@@ -30,17 +30,20 @@ disabled = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-success_symbol = "[➜❯❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[✗❯❯](bold red)"
+success_symbol = "[❯❯](bold #e9b4dc)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[❯❯](bold red)"
 
 [shell]
-fish_indicator = ''
-powershell_indicator = '_'
+fish_indicator = '󰈺'
+powershell_indicator = '󰖳'
 bash_indicator = ''
 zsh_indicator = '󰼂'
 unknown_indicator = 'mystery shell'
 style = '#cad3f5 bold'
 disabled = false
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
 
 #  
 # configure directory
@@ -65,8 +68,8 @@ symbol = " "
 [dart]
 symbol = " "
 
-#[directory]
-#read_only = " "
+# [directory]
+# read_only = " "
 
 [docker_context]
 symbol = " "
@@ -142,7 +145,7 @@ symbol = " "
 symbol = " "
 
 [python]
-symbol = "🐍 "
+symbol = "󰌠 "
 #pyenv_version_name = true
 format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
 style = "bold yellow"
