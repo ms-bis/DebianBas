@@ -12,7 +12,7 @@ glyph=" ⬤ "
 
 [box]
 title=" msbis "
-border="double"
+border="rounded"
 visible=true
 
 [bar]
@@ -37,6 +37,7 @@ wm = "󰮯 WM"
 packages=" packages"
 terminal=" terminal"
 shell=" shell"
+local_ip = "󰲑 Local IP"
 uptime = " Uptime"
 resolution = "󰍹 Resolution"
 cpu=" cpu"
