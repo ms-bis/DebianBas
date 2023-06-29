@@ -1,5 +1,10 @@
 [ActivityManager][Global Shortcuts]
+switch-to-activity-70446618-c74a-4189-b7e0-3c5d5a5df2f9=
 switch-to-activity-f96623a4-ef04-4f6e-906e-93dd9270eab2=
+
+[Alacritty.desktop][Global Shortcuts]
+New=
+_launch=Meta+Alt+T
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch to Next Keyboard Layout=Meta+Alt+K
@@ -8,10 +13,10 @@ Switch to Next Keyboard Layout=Meta+Alt+K
 AboutApp=
 AboutKDE=
 Activate Next Tab=Ctrl+]; Ctrl+PgDown
-Activate Previous Tab=Ctrl+PgUp; Ctrl+[
+Activate Previous Tab=Ctrl+[; Ctrl+PgUp
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Alt+Left; Back
+Back=Back; Alt+Left
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -54,7 +59,7 @@ Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
 OpenRecent=
-Paste=Ctrl+V; Shift+Ins
+Paste=Shift+Ins; Ctrl+V
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -90,17 +95,47 @@ Zoom=
 ZoomIn=Ctrl+=; Ctrl++
 ZoomOut=Ctrl+-
 
+[bismuth][Global Shortcuts]
+decrease_master_size=
+decrease_master_win_count=Meta+[
+decrease_window_height=Meta+Ctrl+K
+decrease_window_width=Meta+Ctrl+H
+focus_bottom_window=Meta+J
+focus_left_window=Meta+Alt+G
+focus_next_window=Meta+Alt+F
+focus_prev_window=Meta+Alt+D
+focus_right_window=Meta+Alt+H
+focus_upper_window=Meta+K
+increase_master_size=
+increase_master_win_count=Meta+]
+increase_window_height=Meta+Ctrl+J
+increase_window_width=Meta+Ctrl+L
+move_window_to_bottom_pos=Meta+Shift+J
+move_window_to_left_pos=Meta+Shift+H
+move_window_to_next_pos=
+move_window_to_prev_pos=
+move_window_to_right_pos=Meta+Shift+L
+move_window_to_upper_pos=Meta+Shift+K
+next_layout=Meta+\\
+prev_layout=Meta+|
+push_window_to_master=Meta+Return
+rotate=Meta+R
+rotate_part=Meta+Shift+R
+rotate_reverse=
+toggle_float_layout=Meta+Shift+F
+toggle_monocle_layout=Meta+M
+toggle_quarter_layout=
+toggle_spiral_layout=
+toggle_spread_layout=
+toggle_stair_layout=
+toggle_three_column_layout=
+toggle_tile_layout=Meta+T
+toggle_window_floating=Meta+F
+
 [brave-browser.desktop][Global Shortcuts]
 _launch=Ctrl+@
 new-private-window=Ctrl+!
 new-window=
-
-[com.alacritty.Alacritty.desktop][Global Shortcuts]
-New=
-_launch=Meta+Alt+T
-
-[com.discordapp.Discord.desktop][Global Shortcuts]
-_launch=Meta+Ctrl+D
 
 [kaccess][Global Shortcuts]
 Toggle Screen Reader On and Off=Meta+Alt+S
@@ -112,20 +147,21 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=Ctrl+Esc
-display=Display; Meta+P
+display=Meta+P; Display
 
 [khotkeys][Global Shortcuts]
-{9309b6c1-f494-4b94-9ad1-6c9a60229966}=Ctrl+#
+{1d342604-dec9-45f7-b216-b0fd86f74e71}=Meta+Shift+T
+{5328a2c1-e0e3-4852-8b16-f27921c6f23c}=Ctrl+Shift+E
+{92340c91-7c85-4992-9469-8ec2a488cd70}=Ctrl+Shift+R
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=
-{de2990d7-b119-4491-b13a-23cb7bfe479a}=Ctrl+Alt+X
 
 [kmix][Global Shortcuts]
 decrease_microphone_volume=Microphone Volume Down
-decrease_volume=Ctrl+Alt+]; Volume Down
+decrease_volume=Ctrl+Alt+[; Volume Down
 increase_microphone_volume=Microphone Volume Up
-increase_volume=Volume Up; Ctrl+Alt+[
-mic_mute=Meta+Volume Mute; Microphone Mute
-mute=Volume Mute
+increase_volume=Volume Up; Ctrl+Alt+]
+mic_mute=Microphone Mute; Meta+Volume Mute
+mute=Volume Mute; Ctrl+Alt+M
 
 [knotes][Global Shortcuts]
 hide_all_notes=Alt+Shift+H
@@ -146,43 +182,17 @@ Reboot Without Confirmation=
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=Meta+Ctrl+A
 Decrease Opacity=
+Edit Tiles=Alt+Shift+T
 Expose=Ctrl+F9
-ExposeAll=Meta+Ctrl+W; Launch (C); Ctrl+F10
+ExposeAll=Ctrl+F10; Launch (C); Meta+Ctrl+W
 ExposeClass=Ctrl+F7
+ExposeClassCurrentDesktop=
 Exquisite=Ctrl+Alt+D
 Increase Opacity=
 Invert Screen Colors=
 Kill Window=Meta+Ctrl+Esc
-Krohnkite: Cycle Layout=
-Krohnkite: Decrease=
-Krohnkite: Down/Next=
-Krohnkite: Float=
-Krohnkite: Float All=
-Krohnkite: Floating Layout=
-Krohnkite: Grow Height=
-Krohnkite: Grow Width=
-Krohnkite: Increase=Meta+I
-Krohnkite: Left=Meta+H
-Krohnkite: Monocle Layout=
-Krohnkite: Move Down/Next=
-Krohnkite: Move Left=
-Krohnkite: Move Right=
-Krohnkite: Move Up/Prev=
-Krohnkite: Next Layout=
-Krohnkite: Previous Layout=
-Krohnkite: Quarter Layout=
-Krohnkite: Right=
-Krohnkite: Rotate=
-Krohnkite: Rotate Part=
-Krohnkite: Set master=
-Krohnkite: Shrink Height=
-Krohnkite: Shrink Width=
-Krohnkite: Spread Layout=
-Krohnkite: Stair Layout=
-Krohnkite: Three Column Layout=
-Krohnkite: Tile Layout=
-Krohnkite: Up/Prev=
 MinimizeAll=Meta+Shift+D
+Move Tablet to Next Output=
 MoveMouseToCenter=Meta+F6
 MoveMouseToFocus=Meta+F5
 MoveZoomDown=
@@ -222,9 +232,9 @@ Switch to Desktop 6=
 Switch to Desktop 7=
 Switch to Desktop 8=
 Switch to Desktop 9=
-Switch to Next Desktop=Meta+Shift+X
+Switch to Next Desktop=Meta+Shift+C
 Switch to Next Screen=
-Switch to Previous Desktop=Meta+Shift+C
+Switch to Previous Desktop=Meta+Shift+X
 Switch to Previous Screen=
 Switch to Screen 0=
 Switch to Screen 1=
@@ -234,6 +244,11 @@ Switch to Screen 4=
 Switch to Screen 5=
 Switch to Screen 6=
 Switch to Screen 7=
+Switch to Screen Above=
+Switch to Screen Below=
+Switch to Screen to the Left=
+Switch to Screen to the Right=
+Toggle=
 Toggle Night Color=
 Toggle Window Raise/Lower=
 Walk Through Desktop List=
@@ -250,8 +265,8 @@ Walk Through Windows of Current Application Alternative=
 Walk Through Windows of Current Application Alternative (Reverse)=
 Window Above Other Windows=
 Window Below Other Windows=
-Window Close=Alt+F4; Ctrl+Shift+Q
-Window Fullscreen=
+Window Close=Alt+F4; Meta+Ctrl+Q
+Window Fullscreen=F11
 Window Grow Horizontal=
 Window Grow Vertical=
 Window Lower=
@@ -261,12 +276,16 @@ Window Maximize Vertical=
 Window Minimize=Meta+PgDown
 Window Move=
 Window Move Center=
-Window No Border=Ctrl+Alt+B
+Window No Border=
 Window On All Desktops=
 Window One Desktop Down=Meta+Ctrl+Shift+Down
 Window One Desktop Up=Meta+Ctrl+Shift+Up
 Window One Desktop to the Left=Meta+Ctrl+Shift+Left
 Window One Desktop to the Right=Meta+Ctrl+Shift+Right
+Window One Screen Down=
+Window One Screen Up=
+Window One Screen to the Left=
+Window One Screen to the Right=
 Window Operations Menu=Alt+F3
 Window Pack Down=
 Window Pack Left=
@@ -305,9 +324,9 @@ Window to Desktop 6=
 Window to Desktop 7=
 Window to Desktop 8=
 Window to Desktop 9=
-Window to Next Desktop=Meta+Alt+V
+Window to Next Desktop=Meta+Alt+B
 Window to Next Screen=Meta+Shift+Right
-Window to Previous Desktop=Meta+Alt+B
+Window to Previous Desktop=Meta+Alt+V
 Window to Previous Screen=Meta+Shift+Left
 Window to Screen 0=
 Window to Screen 1=
@@ -318,41 +337,6 @@ Window to Screen 5=
 Window to Screen 6=
 Window to Screen 7=
 addDesktop=Meta+Shift+A
-bismuth_decrease_master_size=
-bismuth_decrease_master_win_count=Meta+[
-bismuth_decrease_window_height=Meta+Ctrl+K
-bismuth_decrease_window_width=Meta+Ctrl+H
-bismuth_focus_bottom_window=Meta+J
-bismuth_focus_left_window=Meta+Alt+G
-bismuth_focus_next_window=Meta+Alt+D
-bismuth_focus_prev_window=Meta+Alt+F
-bismuth_focus_right_window=Meta+Alt+H
-bismuth_focus_upper_window=Meta+K
-bismuth_increase_master_size=
-bismuth_increase_master_win_count=Meta+]
-bismuth_increase_window_height=Meta+Ctrl+J
-bismuth_increase_window_width=Meta+Ctrl+L
-bismuth_move_window_to_bottom_pos=Meta+Shift+J
-bismuth_move_window_to_left_pos=Meta+Shift+H
-bismuth_move_window_to_next_pos=
-bismuth_move_window_to_prev_pos=
-bismuth_move_window_to_right_pos=Meta+Shift+L
-bismuth_move_window_to_upper_pos=Meta+Shift+K
-bismuth_next_layout=Meta+\\
-bismuth_prev_layout=Meta+|
-bismuth_push_window_to_master=Meta+Return
-bismuth_rotate=Meta+R
-bismuth_rotate_part=Meta+Shift+R
-bismuth_rotate_reverse=
-bismuth_toggle_float_layout=Meta+Shift+F
-bismuth_toggle_monocle_layout=Meta+M
-bismuth_toggle_quarter_layout=
-bismuth_toggle_spiral_layout=
-bismuth_toggle_spread_layout=
-bismuth_toggle_stair_layout=
-bismuth_toggle_three_column_layout=
-bismuth_toggle_tile_layout=Meta+T
-bismuth_toggle_window_floating=Meta+F
 moveCurrentDesktopToLeft=Meta+Alt+N
 moveCurrentDesktopToRight=Meta+Alt+M
 removeCurrentDesktop=Meta+Shift+S
@@ -364,20 +348,26 @@ view_zoom_in=Meta+=
 view_zoom_out=Meta+-
 
 [mediacontrol][Global Shortcuts]
-mediavolumedown=Ctrl+}
-mediavolumeup=Ctrl+{
+mediavolumedown=Ctrl+{
+mediavolumeup=Ctrl+}
 nextmedia=Media Next
 pausemedia=Media Pause
 playmedia=
-playpausemedia=Media Play
+playpausemedia=Ctrl+Alt+P; Media Play
 previousmedia=Media Previous
 stopmedia=Media Stop
 
-[net.lutris.Lutris.desktop][Global Shortcuts]
-_launch=Ctrl+Shift+L
+[org.flameshot.Flameshot.desktop][Global Shortcuts]
+Capture=Ctrl+/
+Configure=
+Launcher=
+_launch=
 
 [org.kde.dolphin.desktop][Global Shortcuts]
 _launch=Meta+E
+
+[org.kde.kcalc.desktop][Global Shortcuts]
+_launch=Launch (1)
 
 [org.kde.konsole.desktop][Global Shortcuts]
 NewTab=
@@ -423,15 +413,29 @@ activate task manager entry 6=Meta+6
 activate task manager entry 7=Meta+7
 activate task manager entry 8=Meta+8
 activate task manager entry 9=Meta+9
+activate widget 153=
+activate widget 202=
+activate widget 208=
+activate widget 239=
 activate widget 24=
+activate widget 247=
 activate widget 25=
+activate widget 257=
+activate widget 26=
+activate widget 262=
+activate widget 265=
+activate widget 278=
 activate widget 28=Alt+F1
 activate widget 29=
-activate widget 3=
-activate widget 30=
+activate widget 30=Ctrl+Alt+F
+activate widget 305=Meta+Ctrl+D
 activate widget 32=
-activate widget 33=Ctrl+Alt+F
+activate widget 33=
+activate widget 332=
+activate widget 334=
+activate widget 35=
 activate widget 49=
+activate widget 51=
 activate widget 56=
 activate widget 58=
 activate widget 59=
@@ -456,9 +460,6 @@ toggle do not disturb=
 [ranger.desktop][Global Shortcuts]
 _launch=Meta+Alt+R
 
-[spotify.desktop][Global Shortcuts]
-_launch=
-
 [systemsettings.desktop][Global Shortcuts]
 _launch=Meta+Ctrl+C; Tools
 kcm-kscreen=
@@ -476,3 +477,6 @@ Previous Profile=Meta+Ctrl+P
 Toggle screen map selection=Meta+Ctrl+M
 Toggle stylus mode=Meta+Ctrl+S
 Toggle touch tool=Meta+Ctrl+T
+
+[xkill.desktop][Global Shortcuts]
+_launch=Ctrl+Alt+X
