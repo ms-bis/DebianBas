@@ -9,7 +9,7 @@ export OSH='/home/msbis/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="sexy"
+OSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -128,8 +128,6 @@ source "$OSH"/oh-my-bash.sh
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
 
-[[ $- == *i* ]] &&
-source "/home/msbis/.local/share/blesh/ble.sh" --attach=none
 iatest=$(expr index "$-" i)
 
 # Source global definitions
@@ -735,6 +733,7 @@ alias lookingglass="~/looking-glass-B5.0.1/client/build/looking-glass-client -F"
 alias cpu="grep 'cpu ' /proc/stat | awk '{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}' | awk '{printf(\"%.1f\n\", \$1)}'"
 
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin"
+export PATH=/usr/bin:$PATH/usr/bin/python3
 
 # Install Starship - curl -sS https://starship.rs/install.sh | sh
 
@@ -748,9 +747,9 @@ bind '"\e[B": history-search-forward'
 . /home/msbis/.autojump/etc/profile.d/autojump.sh
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
+eval "$(starship init bash)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-[[ ${BLE_VERSION-} ]] && ble-attach
-
 colorscript -r
-# neofetch 
+export PATH="${PATH}:${HOME}/.local/bin/"
+
+# source ~/.local/share/blesh/ble.sh
