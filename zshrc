@@ -1,4 +1,4 @@
-#gitmoji If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dst"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +70,7 @@ ZSH_THEME="dst"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf-tab)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf-tab command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,12 +114,6 @@ alias web='cd /var/www/html'
 # mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
 # umount /home/NAMEOFISO.iso
 # (Both commands done as root only.)
-
-#######################################################
-# GENERAL ALIAS'S
-#######################################################
-# To temporarily bypass an alias, we preceed the command with a \
-    # EG: the ls command is aliased, but to use the normal ls command you would type \ls
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -185,7 +179,7 @@ alias sli='sudo lvim'
 alias firefox-esr='gtk3-nocsd firefox-esr'
 alias lutris='gtk3-nocsd lutris'
 alias bat='batcat'
-
+alias mpv='io.mpv.Mpv'
 # Change directory aliases
 alias home='cd ~'
 alias cd..='cd ..'
@@ -218,7 +212,7 @@ alias ldir="ls -l | egrep '^d'" # directories only
 alias ls='exa --icons --color=always --group-directories-first'
 alias ll='exa -halF --icons --color=always --group-directories-first'
 alias la='exa -a --icons --color=always --group-directories-first'
-alias l='exa -F --icons --color=always --group-directories-first'
+alias l='exa --icons --color=always --group-directories-first'
 alias lis='exa -1 --icons --color=always --group-directories-first'
 alias l.='exa -a | egrep "^\."'
 # alias chmod commands
@@ -280,36 +274,21 @@ alias sha1='openssl sha1'
 
 alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 
-##### zplug #####
 
-source ~/.zplug/init.zsh
 
-if [ -f ${HOME}/.zplug/init.zsh ]; then
-    source ${HOME}/.zplug/init.zsh
-fi
-
-zplug "b4b4r07/enhancd", use:init.sh
-# zplug "MichaelAquilina/zsh-auto-notify"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
-
+#######################################################
+# script
+#######################################################
 colorscript -r
-# neofetch
+eval "$(starship init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH="${PATH}:${HOME}/.local/bin/"
+# macchina
 
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
 
-source /etc/zsh_command_not_found
+#######################################################
 ## fzf-tab
+#######################################################
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -317,7 +296,7 @@ zstyle ':completion:*:descriptions' format '[%d]'
 # set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:*' show-group full
@@ -325,7 +304,7 @@ zstyle ':fzf-tab:*' show-group full
 zstyle ':completion:complete:*:options' sort false
 # use input as query string when completing zlua
 zstyle ':fzf-tab:complete:_zlua:*' query-string input
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --color=always $realpath' # remember to use single quote here!!!
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 export LESSOPEN='|~/.lessfilter %s'
@@ -357,3 +336,5 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 	"recent commit object name") git show --color=always $word | delta ;;
 	*) git log --color=always $word ;;
 esac'
+
+
