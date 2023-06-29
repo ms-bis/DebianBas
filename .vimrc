@@ -206,9 +206,9 @@ augroup END
 let no_buffers_menu=1
 
 " Theme
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+colorscheme catppuccin_macchiato
 
 " Better command line completion 
 set wildmenu
@@ -625,3 +625,5 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+autocmd FileType vim set sidescrolloff=0
+
