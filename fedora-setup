@@ -1,0 +1,18 @@
+# Brave browser
+sudo dnf install dnf-plugins-core
+
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+sudo dnf install brave-browser
+aurorae plasma colorscheme kvanyum
+padding 85
+
+mkdir .vim/undo
+
+mpv from brew/flatpak
+
+if [ -d "/var/lib/flatpak/exports/bin" ] ; then
+    PATH="/var/lib/flatpak/exports/bin:$PATH"
+fi
